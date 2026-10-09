@@ -1,0 +1,21 @@
+[
+  {
+    "query": "how often is the database backed up",
+    "expected": [{ "title": "Data Backup and Restore", "label": "answer" }]
+  },
+  {
+    "query": "who approves a new user account",
+    "expected": [
+      { "title": "User Access Management", "label": "answer" },
+      { "title": "Password Policy", "label": "related" }
+    ]
+  },
+  {
+    "query": "escalation time for a critical incident",
+    "expected": [{ "title": "Incident Escalation", "label": "answer" }]
+  },
+  {
+    "query": "weather forecast for tomorrow",
+    "expected": []
+  }
+]
