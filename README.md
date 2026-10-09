@@ -19,7 +19,7 @@
 </tr>
 </table>
 
-**[Why](#why) · [Quick start](#quick-start) · [How it works](#how-it-works) · [API](#api) · [Configuration](#configuration) · [Benchmark](#benchmark) · [Docs](#documentation)**
+**[Why](#why) · [Quick start](#quick-start) · [How it works](#how-it-works) · [n8n](#production-setup-with-n8n) · [API](#api) · [Configuration](#configuration) · [Benchmark](#benchmark) · [Docs](#documentation)**
 
 </div>
 
@@ -123,6 +123,24 @@ flowchart LR
 Indexing follows the document's own structure: numbered headings become chunks (target 500, max 700 tokens), each wrapped with a short header of title, section and purpose before embedding.
 
 Full details: [Search pipeline](docs/search.md) · [Indexing pipeline](docs/indexing.md) · [Architecture](docs/architecture.md)
+
+## Production setup with n8n
+
+In production, embeddings go through two n8n workflows instead of a direct model call. The prompt template lives in n8n, so it can change without a backend deploy, and one workflow serves both development and production.
+
+<p align="center">
+  <img src="assets/n8n-embed-documents.svg" width="880" alt="Embed Documents workflow: Webhook, Split Out, Embed, Save Embedding">
+</p>
+
+**Embed Documents** runs asynchronously. The backend posts a batch of chunks and moves on; n8n splits it into one item per chunk, embeds each one and posts the vector back through a callback chosen by environment.
+
+<p align="center">
+  <img src="assets/n8n-embed-query.svg" width="880" alt="Embed Query workflow: Webhook, Embed Query, Respond to Webhook">
+</p>
+
+**Embed Query** runs synchronously. A search waits for its vector, so the workflow embeds the query with the same template and returns the vector in the response.
+
+Node-by-node details: [docs/n8n.md](docs/n8n.md)
 
 ## API
 
