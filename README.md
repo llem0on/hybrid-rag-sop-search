@@ -19,7 +19,7 @@
 </tr>
 </table>
 
-**[Why](#why) · [Quick start](#quick-start) · [How it works](#how-it-works) · [n8n](#production-setup-with-n8n) · [API](#api) · [Configuration](#configuration) · [Benchmark](#benchmark) · [Docs](#documentation)**
+**[Why](#why) · [Quick start](#quick-start) · [How it works](#how-it-works) · [n8n](#optional-n8n-workflows) · [API](#api) · [Configuration](#configuration) · [Benchmark](#benchmark) · [Docs](#documentation)**
 
 </div>
 
@@ -124,9 +124,9 @@ Indexing follows the document's own structure: numbered headings become chunks (
 
 Full details: [Search pipeline](docs/search.md) · [Indexing pipeline](docs/indexing.md) · [Architecture](docs/architecture.md)
 
-## Production setup with n8n
+## Optional: n8n workflows
 
-In production, embeddings go through two n8n workflows instead of a direct model call. The prompt template lives in n8n, so it can change without a backend deploy, and one workflow serves both development and production.
+By default the service calls the model endpoint directly. As an optional approach, embedding can be routed through two n8n workflows instead. The main benefit is **observability**: every embedding call shows up in n8n's built-in execution dashboard with its input, output, duration and errors, so failed or slow calls can be inspected and re-run without adding logging code. The prompt template also lives in n8n, so it can change without a redeploy.
 
 <p align="center">
   <img src="assets/n8n-embed-documents.svg" width="880" alt="Embed Documents workflow: Webhook, Split Out, Embed, Save Embedding">
@@ -236,7 +236,7 @@ docs/            architecture, pipelines, API, configuration, evaluation
 | [API](docs/api.md) | Endpoints, request and response shapes |
 | [Configuration](docs/configuration.md) | Every environment variable and how to tune it |
 | [Evaluation](docs/evaluation.md) | Dataset format, metrics, running the benchmark |
-| [n8n workflows](docs/n8n.md) | Production embedding flow through n8n |
+| [n8n workflows](docs/n8n.md) | Optional embedding flow through n8n, with execution logs in the n8n dashboard |
 
 ## License
 

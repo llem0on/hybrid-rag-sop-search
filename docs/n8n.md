@@ -1,8 +1,14 @@
-# n8n Workflows
+# Optional: n8n Workflows
 
-In production the backend does not call the model server directly. Two n8n workflows sit in between: one embeds document chunks, one embeds search queries. Keeping the prompt template in n8n means the template can change without redeploying the backend, and one workflow can serve several environments.
+The service calls the model endpoint directly by default (`LLM_BASE_URL`). Routing embeddings through n8n is an optional approach.
 
-This repository calls the model endpoint directly (`LLM_BASE_URL`) so it runs with nothing but a model server. The workflows below are the production variant of the same calls.
+| Benefit | Why it helps |
+|---|---|
+| **Logs out of the box** | Every call appears in n8n's execution dashboard with input, output, duration and error. Failed or slow calls can be inspected and re-run from the UI, with no logging code in the backend |
+| **Template outside the code** | The prompt template is edited in n8n, so it changes without a backend redeploy |
+| **One workflow, several environments** | The callback URL is chosen from an `env` field, so development and production share the same workflow |
+
+The trade-off is one more service to run and an extra network hop per call.
 
 ## Embed Documents
 
