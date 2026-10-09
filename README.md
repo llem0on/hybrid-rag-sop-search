@@ -218,6 +218,7 @@ docs/            architecture, pipelines, API, configuration, evaluation
 | [API](docs/api.md) | Endpoints, request and response shapes |
 | [Configuration](docs/configuration.md) | Every environment variable and how to tune it |
 | [Evaluation](docs/evaluation.md) | Dataset format, metrics, running the benchmark |
+| [n8n workflows](docs/n8n.md) | Production embedding flow through n8n |
 
 ## License
 

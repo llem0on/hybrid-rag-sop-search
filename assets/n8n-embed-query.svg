@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="300" viewBox="0 0 880 300" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.2" fill="#d4d4d8"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+  <rect width="880" height="300" rx="14" fill="#f4f4f5"/>
+  <rect width="880" height="300" rx="14" fill="url(#dots)"/>
+  <text x="28" y="40" font-size="17" font-weight="700" fill="#18181b">Embed Query</text>
+  <text x="28" y="62" font-size="13" fill="#71717a">POST /webhook/embed-query · sync, returns the vector in the response</text>
+
+  <g stroke="#9ca3af" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <path d="M288 150 H362"/>
+    <path d="M488 150 H562"/>
+  </g>
+
+  <g>
+    <path d="M188 110 h56 a14 14 0 0 1 14 14 v52 a14 14 0 0 1 -14 14 h-56 a40 40 0 0 1 -40 -40 a40 40 0 0 1 40 -40 z" fill="#ffffff" stroke="#d4d4d8" stroke-width="2"/>
+    <path d="M186 138 l14 24 l14 -24 M200 162 v-34" stroke="#ff6d5a" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="203" y="216" font-size="14" font-weight="600" fill="#18181b" text-anchor="middle">Webhook</text>
+    <text x="203" y="234" font-size="12" fill="#71717a" text-anchor="middle">POST { text }</text>
+  </g>
+
+  <g>
+    <rect x="372" y="110" width="110" height="80" rx="14" fill="#ffffff" stroke="#d4d4d8" stroke-width="2"/>
+    <circle cx="427" cy="150" r="22" fill="none" stroke="#0ea5e9" stroke-width="3.5"/>
+    <path d="M405 150 h44 M427 128 c-10 12 -10 32 0 44 c10 -12 10 -32 0 -44" stroke="#0ea5e9" stroke-width="2.5" fill="none"/>
+    <text x="427" y="216" font-size="14" font-weight="600" fill="#18181b" text-anchor="middle">Embed Query</text>
+    <text x="427" y="234" font-size="12" fill="#71717a" text-anchor="middle">POST /v1/embeddings</text>
+  </g>
+
+  <g>
+    <path d="M572 110 h70 a40 40 0 0 1 40 40 a40 40 0 0 1 -40 40 h-70 a14 14 0 0 1 -14 -14 v-52 a14 14 0 0 1 14 -14 z" fill="#ffffff" stroke="#d4d4d8" stroke-width="2"/>
+    <path d="M598 150 h40 M626 138 l12 12 l-12 12" stroke="#22c55e" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="617" y="216" font-size="14" font-weight="600" fill="#18181b" text-anchor="middle">Respond to Webhook</text>
+    <text x="617" y="234" font-size="12" fill="#71717a" text-anchor="middle">{ data: [ { embedding } ] }</text>
+  </g>
+</svg>
